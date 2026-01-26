@@ -20,6 +20,10 @@ export default function BagPanel() {
       className="hidden sm:flex fixed right-0 top-0 h-screen sm:w-72 md:w-[320px] flex-col z-50 p-4"
       style={{ backgroundColor: "#EDEDED" }} // light gray panel
     >
+      <p className="text-center text-black font-bold text-lg mt-4">
+      Bag
+      </p>
+
       {/* Container for images + button */}
       <div className="flex flex-col gap-4">
         {/* Product images */}
@@ -35,6 +39,7 @@ export default function BagPanel() {
             if (!p) return null;
 
             return (
+
               <div
                 key={id}
                 className="w-20 h-20 rounded-xl bg-white flex items-center justify-center overflow-hidden shadow-sm"
