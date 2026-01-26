@@ -9,7 +9,7 @@ export default function ProductDetailPage({ productId, onNavigate }) {
   const product = PRODUCTS.find((p) => p.id === productId);
 
   if (!product) {
-    return <p>Product not found.</p>;
+    return <p>OOps ! Looks like product is not found .</p>;
   }
 
   return (
