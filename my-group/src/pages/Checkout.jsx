@@ -23,7 +23,8 @@ export default function Checkout() {
   const orderTotal = itemsTotal + shipping + gst - giftCard;
 
   return (
-    <div className="flex gap-6 max-w-6xl mx-auto p-6">
+    <div className="flex flex-col lg:flex-row gap-6 max-w-6xl mx-auto p-6">
+
       {/* Left: Bag Items */}
       <section className="flex-1">
         <h1 className="font-fraunces text-3xl mb-6">Check your Bag Items</h1>
@@ -101,7 +102,7 @@ export default function Checkout() {
 
       {/* Right: Order Summary */}
       <aside
-        className="w-72 bg-white rounded-xl shadow-lg p-5 sticky top-5 text-sm text-gray-900 font-semibold"
+        className="w-72 bg-white rounded-xl shadow-lg p-5 sticky top-5 text-sm text-gray-900 font-semibold "
         aria-label="Order Summary"
       >
         <div className="mb-3 flex justify-between">
@@ -127,8 +128,8 @@ export default function Checkout() {
         </div>
         <button
           type="button"
-          onClick={() => alert("Checkout complete!")}
-          className="w-full py-3 rounded-lg bg-black text-white font-extrabold text-base hover:bg-gray-800"
+          onClick={() => navigate("/AddPayment")}
+          className="w-full py-3 rounded-lg bg-black text-white text-base hover:bg-gray-800"
         >
           Place your order
         </button>

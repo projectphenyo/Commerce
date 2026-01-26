@@ -21,13 +21,14 @@ export default function ProductCard({ product, onAdd }) {
           handleNavigate();
         }
       }}
-      className="group bg-gray-100 rounded-2xl shadow-md overflow-hidden object-contain  "
-    >
+        className="group bg-gray-100 rounded-2xl shadow-md overflow-hidden object-contain 
+                p-4 sm:p-6 hover:shadow-lg transition">
+
       <div className="mb-4 aspect-square bg-product-card p-4 flex items-center justify-center overflow-hidden">
         <img
           src={product.src}
           alt={product.name}
-          className="w-full h-70 rounded-2xl bg-white object-contain group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-90 rounded-2xl bg-white object-contain group-hover:scale-105 transition-transform duration-300"
         />
       </div>
 

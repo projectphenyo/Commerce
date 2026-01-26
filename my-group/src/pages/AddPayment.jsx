@@ -15,26 +15,23 @@ export default function AddPaymentMethod() {
     navigate("/checkout");
   };
 
-  return (
+  return (  
     <>
-      {/* Topbar */}
-      <header className="bg-gray-100 p-4 shadow">
-        <h1 className="text-2xl font-bold">Add Payment</h1>
-      </header>
-
       <section className="p-6" aria-live="polite">
         <form
           onSubmit={handleSubmit}
-          className="max-w-md mx-auto bg-white p-6 rounded-xl shadow-lg space-y-6"
         >
-          {/* Existing cards */}
+          {/* select a cards */}
+          <div className="max-w-md mx-auto bg-white p-6 rounded-xl shadow-lg space-y-6 mb-2">
           <h2 className="text-lg font-semibold">SELECT A CARD</h2>
           <div className="bg-gray-100 p-3 rounded-lg mb-6">
             <p>MasterCard ending in 4242</p>
             <p>VISA Debit ending in 2894</p>
           </div>
+          </div>
 
-          {/* Add new card */}
+           {/* Add new card  */}
+           <div className="max-w-md mx-auto bg-white p-6 rounded-xl shadow-lg space-y-6 mt-2">
           <h2 className="text-lg font-semibold">ADD A NEW CARD</h2>
 
           <label htmlFor="cardholder" className="block mb-1 font-medium">
@@ -102,7 +99,7 @@ export default function AddPaymentMethod() {
             <span>Save this as your default payment method</span>
           </label>
 
-          {/* Buttons */}
+           {/* Buttons  */}
           <button
             type="submit"
             className="w-full bg-black text-white py-3 rounded-lg font-bold hover:bg-gray-800"
@@ -118,7 +115,7 @@ export default function AddPaymentMethod() {
             Back
           </button>
 
-          {/* Secure connection */}
+           Secure connection 
           <div className="mt-3 text-green-600 font-bold flex items-center gap-2">
             <svg
               width="18"
@@ -134,8 +131,13 @@ export default function AddPaymentMethod() {
             </svg>
             <span>Secure Connection</span>
           </div>
+          </div>  
         </form>
       </section>
     </>
-  );
+
+          );
 }
+
+
+ 

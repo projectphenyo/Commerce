@@ -24,8 +24,12 @@ export default function Sidebar({ currentPage, onNavigate }) {
   return (
     <aside
       aria-label="Primary navigation"
-      className="fixed left-0 top-0 h-screen w-20 bg-white flex flex-col p-4 shadow-sm z-50"
-    >
+      className="fixed left-0 top-0 h-screen w-17.5 bg-background  border-border flex flex-col items-center py-6 z-50">
+      {/* className="fixed left-0 top-0 h-screen w-20 bg-white flex flex-col p-4 shadow-sm z-50" */}
+    {/* <aside 
+//   aria-label="Primary navigation"
+//   className="fixed left-0 top-0 h-screen w-64 sm:w-40 md:w-20 bg-white flex flex-col p-4 shadow-sm z-50"
+// > */}
       <div
         aria-label="Logo"
         className="w-11 h-11 rounded-xl flex items-center justify-center mb-6"

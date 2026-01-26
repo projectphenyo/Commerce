@@ -43,7 +43,7 @@ export default function Store() {
       </header>
 
       {/* Product Section */}
-      <section aria-live="polite" className="p-6 grid md:grid-cols-2 gap-8">
+     <section aria-live="polite" className=" md:grid-cols-2 gap-8 ml-16 p-6 flex ">
         {/* Images */}
         <div aria-label="Product images" className="space-y-4">
           <div
