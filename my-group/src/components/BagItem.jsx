@@ -17,14 +17,15 @@ export default function BagPanel() {
   return (
     <aside
       aria-label="Bag panel"
-      className="hidden sm:flex fixed right-0 top-0 h-screen sm:w-72 md:w-[320px] bg-white flex-col z-50 p-4"
+      className="hidden sm:flex fixed right-0 top-0 h-screen sm:w-72 md:w-[320px] flex-col z-50 p-4"
+      style={{ backgroundColor: "#EDEDED" }} // light gray panel
     >
       {/* Container for images + button */}
       <div className="flex flex-col gap-4">
         {/* Product images */}
         <div className="grid grid-cols-3 gap-3">
           {items.length === 0 && (
-            <p className="col-span-3 text-center text-gray-400 text-sm mt-4">
+            <p className="col-span-3 text-center text-gray-500 text-sm mt-4">
               Your bag is empty
             </p>
           )}
@@ -36,7 +37,7 @@ export default function BagPanel() {
             return (
               <div
                 key={id}
-                className="w-20 h-20 rounded-xl bg-gray-100 flex items-center justify-center overflow-hidden"
+                className="w-20 h-20 rounded-xl bg-white flex items-center justify-center overflow-hidden shadow-sm"
               >
                 <img
                   src={p.src}

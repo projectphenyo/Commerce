@@ -13,7 +13,7 @@ import Menu from "./Menu";
 function ProductPlaceholder({ product }) {
   return (
     <div
-      className="w-full h-72 flex items-center justify-center text-white text-2xl font-bold rounded-md"
+      className="w-full h-40 md:h-56 lg:h-64 flex items-center justify-center text-white text-2xl font-bold rounded-md"
       style={{ backgroundColor: product.colorA || "#ccc" }}
     >
       {product.name}
@@ -29,6 +29,10 @@ export default function Store() {
 
   const isInCart = bag.has(product.id);
 
+  const onAdd = (productId) => {
+    addToBag(productId);
+  };
+
   return (
     <>
       {/* Header */}
@@ -39,7 +43,6 @@ export default function Store() {
           onClick={() => navigate("/Menu")}
           className="flex items-center gap-1 text-black"
         >
-        
           <img src={chevronBack} alt="Chevron Back" className="w-6 h-6" />
           <span>Back</span>
         </button>
@@ -47,24 +50,24 @@ export default function Store() {
       </header>
 
       {/* Product Section */}
-     <section aria-live="polite" className=" md:grid-cols-2 gap-8 ml-16 p-6 flex ">
+      <section className="p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Images */}
-        <div aria-label="Product images" className="space-y-4">
-          <div
-            aria-label="Product thumbnails"
-            className="flex gap-2 justify-center"
-          >
+        <div className="space-y-4">
+          {/* Thumbnails */}
+          <div className="flex gap-2 justify-center md:justify-start flex-wrap">
             {[...Array(3)].map((_, i) => (
               <button
                 key={i}
                 type="button"
                 aria-label={`View alternate image ${i + 1}`}
-                className="w-24 h-24 border rounded overflow-hidden"
+                className="w-20 h-20 md:w-24 md:h-24 rounded overflow-hidden"
               >
                 <ProductPlaceholder product={product} />
               </button>
             ))}
           </div>
+
+          {/* Main image */}
           <div className="border rounded overflow-hidden">
             <ProductPlaceholder product={product} />
           </div>
@@ -93,19 +96,15 @@ export default function Store() {
 
           {/* Add to Bag button */}
           <div className="flex gap-4">
-          <button
-                type="button"
-                aria-label={`Add ${product.name} to bag`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onAdd(product.id);
-                }}
-                className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded "
-              >
-                <img src={bagAdd} alt="Add to bag" className="w-4 h-4" />
-                <span>Add To Bag</span>
-              </button> 
-           
+            <button
+              type="button"
+              aria-label={`Add ${product.name} to bag`}
+              onClick={() => onAdd(product.id)}
+              className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded hover:opacity-90 transition"
+            >
+              <img src={bagAdd} alt="Add to bag" className="w-4 h-4" />
+              <span>Add To Bag</span>
+            </button>
           </div>
         </div>
       </section>
@@ -122,5 +121,3 @@ export default function Store() {
     </>
   );
 }
-
-

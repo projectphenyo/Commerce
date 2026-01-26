@@ -25,8 +25,8 @@ export default function BagPanel() {
    return (   
 <aside
   aria-label="Bag panel"
-  className="hidden sm:flex fixed right-0 top-0 h-screen sm:w-72 md:w-[320px] bg-background flex-col z-50"
-
+  className="hidden sm:flex absolute top-0 right-0 h-full w-72 md:w-80 flex-col p-4"
+  style={{ backgroundColor: "#EDEDED" }}
 
 >
   {/* Header */}

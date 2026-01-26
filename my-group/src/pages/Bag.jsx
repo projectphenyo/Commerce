@@ -74,10 +74,10 @@ export default function Bag() {
         })}
       </section>
 
-      {/* Right: Bag Preview */}
+      {/* Right: Bag Preview
       <aside className="w-72 bg-white rounded-2xl shadow-lg p-5 sticky top-5 flex flex-col gap-4">
 
-        {/* Images only */}
+        {/* Images only
         <div className="grid grid-cols-3 gap-3">
           {entries.map(([id]) => {
             const p = PRODUCTS.find((x) => x.id === id);
@@ -98,7 +98,7 @@ export default function Bag() {
           })}
         </div>
 
-        {/* View Bag Button */}
+        {/* View Bag Button 
         <button
           onClick={() => navigate("/Checkout")}
           className="flex items-center justify-center gap-2 w-full py-3 rounded-full bg-black text-white font-semibold hover:opacity-90 transition"
@@ -107,7 +107,7 @@ export default function Bag() {
           View Bag
         </button>
 
-      </aside>
+      </aside>*/}
     </div>
   );
 }

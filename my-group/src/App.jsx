@@ -16,9 +16,15 @@ export default function App() {
   return (
     <BagProvider>
       <Router>
-        <div className="app flex">
+        {/* Top-level wrapper: relative so BagPanel can position inside */}
+        <div className="relative flex min-h-screen">
+
+          {/* Sidebar: fixed left side */}
           <Sidebar />
-          <main className="main flex-1 min-h-screen ml-20 mr-70 bg-gray-50 p-6">
+
+          {/* Main content */}
+          <main className="flex-1 ml-20 mr-72 p-6 bg-gray-50">
+            {/* ml-20 = sidebar width, mr-72 = Bag panel width */}
             <Routes>
               <Route path="/" element={<Navigate to="/menu" replace />} />
               <Route path="/menu" element={<Menu searchQuery={searchQuery} />} />
@@ -29,6 +35,8 @@ export default function App() {
               <Route path="/checkout" element={<Checkout />} />
             </Routes>
           </main>
+
+          {/* Bag panel */}
           <BagPanel />
         </div>
       </Router>
