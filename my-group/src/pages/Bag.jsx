@@ -11,17 +11,6 @@ export default function Bag() {
 
   const entries = Array.from(bag.entries());
 
-  // Calculate totals
-  const itemsTotal = entries.reduce((sum, [id, qty]) => {
-    const p = PRODUCTS.find((x) => x.id === id);
-    return p ? sum + p.price * qty : sum;
-  }, 0);
-
-  const shipping = 6.99;
-  const gst = 760.41; // Example GST
-  const giftCard = 0.0;
-  const orderTotal = itemsTotal + shipping + gst - giftCard;
-
   return (
     <div className="flex flex-col lg:flex-row gap-6 max-w-6xl mx-auto p-6">
 
@@ -40,12 +29,13 @@ export default function Bag() {
               key={id}
               className="bg-white/70 border border-black/10 rounded-2xl shadow-md p-4 grid grid-cols-[120px_1fr_auto] gap-4 items-center mb-4"
             >
-              {/* Product Image Placeholder */}
-              <div
-                aria-hidden="true"
-                className="w-30 h-24 rounded-xl bg-gray-200 grid place-items-center font-bold text-sm text-gray-600"
-              >
-                {p.name}
+              {/* Product Image */}
+              <div className="w-28 h-24 rounded-xl bg-gray-100 flex items-center justify-center overflow-hidden">
+                <img
+                  src={p.src}
+                  alt={p.name}
+                  className="w-full h-full object-contain"
+                />
               </div>
 
               {/* Product Info */}
@@ -54,10 +44,6 @@ export default function Bag() {
                 <div className="text-gray-500 font-semibold text-xs mb-2">
                   {p.variant}
                 </div>
-                <p className="text-gray-600 text-sm leading-relaxed mb-2 max-w-prose">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
-                  aliquam
-                </p>
                 <div className="flex items-center gap-3 flex-wrap">
                   <RatingStars rating={p.rating || 4.5} />
                   <div className="font-extrabold text-gray-800">
@@ -68,29 +54,17 @@ export default function Bag() {
               </div>
 
               {/* Quantity Controls */}
-              <div
-                aria-label={`Quantity controls for ${p.name}`}
-                className="flex items-center gap-2"
-              >
+              <div className="flex items-center gap-2">
                 <button
-                  type="button"
-                  aria-label="Decrease quantity"
                   onClick={() => removeFromBag(id)}
-                  className="w-8 h-8 rounded-lg border border-black/10 bg-white/70 font-bold text-red-500 text-lg cursor-pointer"
+                  className="w-8 h-8 rounded-lg border bg-white font-bold text-red-500 text-lg"
                 >
                   −
                 </button>
-                <div
-                  aria-label="Quantity"
-                  className="min-w-6 text-center font-extrabold text-gray-800"
-                >
-                  {qty}
-                </div>
+                <div className="min-w-6 text-center font-extrabold">{qty}</div>
                 <button
-                  type="button"
-                  aria-label="Increase quantity"
                   onClick={() => addToBag(id)}
-                  className="w-8 h-8 rounded-lg border border-black/10 bg-white/70 font-bold text-green-500 text-lg cursor-pointer"
+                  className="w-8 h-8 rounded-lg border bg-white font-bold text-green-500 text-lg"
                 >
                   +
                 </button>
@@ -100,21 +74,41 @@ export default function Bag() {
         })}
       </section>
 
-      {/* Right: Order Summary */}
-       <aside
-        className="w-72 bg-white flex justify-items-center rounded-xl shadow-lg p-5 sticky top-5 text-sm text-gray-900 font-semibold "
-      
-      >
-        
+      {/* Right: Bag Preview */}
+      <aside className="w-72 bg-white rounded-2xl shadow-lg p-5 sticky top-5 flex flex-col gap-4">
+
+        {/* Images only */}
+        <div className="grid grid-cols-3 gap-3">
+          {entries.map(([id]) => {
+            const p = PRODUCTS.find((x) => x.id === id);
+            if (!p) return null;
+
+            return (
+              <div
+                key={id}
+                className="w-20 h-20 rounded-xl bg-gray-100 flex items-center justify-center overflow-hidden"
+              >
+                <img
+                  src={p.src}
+                  alt={p.name}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            );
+          })}
+        </div>
+
+        {/* View Bag Button */}
         <button
-          type="button"
           onClick={() => navigate("/Checkout")}
-          className="w-full py-3 rounded-lg bg-emerald-600 text-black text-base hover:bg-emerald-700"
+          className="flex items-center justify-center gap-2 w-full py-3 rounded-full bg-black text-white font-semibold hover:opacity-90 transition"
         >
-          Checkout
+          <span className="material-icons text-base">shopping_bag</span>
+          View Bag
         </button>
-        
-      </aside> 
+
+      </aside>
     </div>
   );
 }
+

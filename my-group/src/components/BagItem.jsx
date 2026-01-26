@@ -1,53 +1,64 @@
-import React from "react";
-import { money } from "../utils/format";
+import React, { useEffect, useState } from "react";
+import { useBag } from "../context/BagContext";
+import PRODUCTS from "../data/products";
+import bagIcon from "../assets/icons/bag-handle.svg";
+import { useNavigate } from "react-router-dom";
 
-export default function BagItem({ product, quantity, onIncrease, onDecrease }) {
+export default function BagPanel() {
+  const { bag } = useBag();
+  const [items, setItems] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const arr = Array.from(bag.entries());
+    setItems(arr);
+  }, [bag]);
+
   return (
-    <article className="flex items-center gap-4 border-b py-4">
-      <div aria-hidden="true">
-        <img
-          src={product.src}
-          alt={product.name}
-          className="w-28 h-24 object-contain"
-        />
-      </div>
+    <aside
+      aria-label="Bag panel"
+      className="hidden sm:flex fixed right-0 top-0 h-screen sm:w-72 md:w-[320px] bg-white flex-col z-50 p-4"
+    >
+      {/* Container for images + button */}
+      <div className="flex flex-col gap-4">
+        {/* Product images */}
+        <div className="grid grid-cols-3 gap-3">
+          {items.length === 0 && (
+            <p className="col-span-3 text-center text-gray-400 text-sm mt-4">
+              Your bag is empty
+            </p>
+          )}
 
-      <div className="flex-1">
-        <div className="font-bold">{product.name}</div>
-        <div className="text-gray-600">{product.variant}</div>
-        <p className="text-sm text-gray-500">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at aliquam fermentum.
-        </p>
+          {items.map(([id]) => {
+            const p = PRODUCTS.find((x) => x.id === id);
+            if (!p) return null;
 
-        <div className="flex justify-between mt-2">
-          <div className="text-blue-600 font-semibold">
-            ${money(product.price)}
-            <span className="ml-2 text-gray-500 font-bold">× {quantity}</span>
-          </div>
+            return (
+              <div
+                key={id}
+                className="w-20 h-20 rounded-xl bg-gray-100 flex items-center justify-center overflow-hidden"
+              >
+                <img
+                  src={p.src}
+                  alt={`Product ${id}`}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            );
+          })}
         </div>
-      </div>
 
-      <div aria-label="Quantity controls" className="flex items-center gap-2">
+        {/* Black "View Bag" button directly under images */}
         <button
-          type="button"
-          aria-label="Decrease quantity"
-          onClick={() => onDecrease(product.id)}
-          className="px-2 py-1 border rounded hover:bg-gray-100"
+          onClick={() => navigate("/Bag")}
+          className="w-full py-3 rounded-full bg-black text-white font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition"
         >
-          –
-        </button>
-        <div aria-label="Quantity" className="font-bold">
-          {quantity}
-        </div>
-        <button
-          type="button"
-          aria-label="Increase quantity"
-          onClick={() => onIncrease(product.id)}
-          className="px-2 py-1 border rounded hover:bg-gray-100"
-        >
-          +
+          <img src={bagIcon} alt="Shopping Bag" className="w-4 h-4 invert" />
+          View Bag
         </button>
       </div>
-    </article>
+    </aside>
   );
 }
+
+
