@@ -1,3 +1,4 @@
+//src/components/ProductCard.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { money } from "../utils/format";
@@ -20,13 +21,13 @@ export default function ProductCard({ product, onAdd }) {
           handleNavigate();
         }
       }}
-      className="group bg-background rounded-2xl shadow-md overflow-hidden hover:shadow-product-hover transition-all duration-300"
+      className="group bg-gray-100 rounded-2xl shadow-md overflow-hidden object-contain  "
     >
       <div className="mb-4 aspect-square bg-product-card p-4 flex items-center justify-center overflow-hidden">
         <img
           src={product.src}
           alt={product.name}
-          className="w-full h-40 object-contain group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-70 rounded-2xl bg-white object-contain group-hover:scale-105 transition-transform duration-300"
         />
       </div>
 
@@ -56,7 +57,6 @@ export default function ProductCard({ product, onAdd }) {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l1.5-7M7 13l-4-8m0 0h18" />
           </svg>
         </button>
-        <RatingStars rating={product.rating} />
       </div>
     </article>
   );

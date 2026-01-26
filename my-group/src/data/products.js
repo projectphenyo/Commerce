@@ -7,7 +7,6 @@ import Iphone12Red from "../assets/images/Iphone-12-03.png";
 import Iphone13ProWhite from "../assets/images/Iphone-13-Pro-01.png";
 import Iphone13ProRed from "../assets/images/Iphone-13-Pro-02.png";
 import Iphone13ProGraphite from "../assets/images/Iphone-13-Pro-03.png";
-
 const products = [
   {
     id: "1",
