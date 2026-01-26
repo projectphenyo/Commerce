@@ -6,6 +6,9 @@ import PRODUCTS from "../data/products";
 import RatingStars from "../components/RatingStars";
 import { money } from "../utils/format";
 import { useBag } from "../context/BagContext";
+import bagAdd from "../assets/icons/bag-add.svg";
+import chevronBack from "../assets/icons/chevron-back.svg";
+import Menu from "./Menu";
 
 function ProductPlaceholder({ product }) {
   return (
@@ -33,10 +36,11 @@ export default function Store() {
         <button
           type="button"
           aria-label="Back"
-          onClick={() => navigate(-1)}
-          className="flex items-center gap-1 text-blue-600 hover:text-blue-800"
+          onClick={() => navigate("/Menu")}
+          className="flex items-center gap-1 text-black"
         >
-          <span>←</span>
+        
+          <img src={chevronBack} alt="Chevron Back" className="w-6 h-6" />
           <span>Back</span>
         </button>
         <h1 className="text-xl font-bold">{product.name}</h1>
@@ -89,26 +93,19 @@ export default function Store() {
 
           {/* Add to Bag button */}
           <div className="flex gap-4">
-            <Button
-              size="icon"
-              onClick={() => addToBag(product.id, 1)}
-              className={`w-9 h-9 rounded-xl transition-all duration-200 ${
-                isInCart
-                  ? "bg-green-500 hover:bg-green-600"
-                  : "bg-gray-900 hover:bg-gray-800"
-              }`}
-            >
-              <span role="img" aria-label="shopping bag">🛍️</span>
-            </Button>
-
-            <button
-              type="button"
-              onClick={() => navigate("/bag")}
-              className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
-            >
-              <span>🛍️</span>
-              <span>View Bag</span>
-            </button>
+          <button
+                type="button"
+                aria-label={`Add ${product.name} to bag`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onAdd(product.id);
+                }}
+                className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded "
+              >
+                <img src={bagAdd} alt="Add to bag" className="w-4 h-4" />
+                <span>Add To Bag</span>
+              </button> 
+           
           </div>
         </div>
       </section>
