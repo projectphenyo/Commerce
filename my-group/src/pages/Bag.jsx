@@ -101,46 +101,20 @@ export default function Bag() {
       </section>
 
       {/* Right: Order Summary */}
-      <aside
-        className="w-72 bg-white rounded-xl shadow-lg p-5 sticky top-5 text-sm text-gray-900 font-semibold "
-        aria-label="Order Summary"
+       <aside
+        className="w-72 bg-white flex justify-items-center rounded-xl shadow-lg p-5 sticky top-5 text-sm text-gray-900 font-semibold "
+      
       >
-        <div className="mb-3 flex justify-between">
-          <span>Items:</span>
-          <span>$ {money(itemsTotal)}</span>
-        </div>
-        <div className="mb-3 flex justify-between">
-          <span>Shipping:</span>
-          <span>$ {shipping.toFixed(2)}</span>
-        </div>
-        <div className="mb-3 flex justify-between">
-          <span>Estimated GST:</span>
-          <span>$ {gst.toFixed(2)}</span>
-        </div>
-        <div className="mb-3 flex justify-between">
-          <span>Gift Card:</span>
-          <span>$ {giftCard.toFixed(2)}</span>
-        </div>
-        <hr className="my-3 border-gray-300" />
-        <div className="mb-5 flex justify-between text-red-600 font-extrabold text-lg">
-          <span>Order Total:</span>
-          <span>$ {money(orderTotal)}</span>
-        </div>
+        
         <button
           type="button"
-          onClick={() => navigate("/AddPayment")}
-          className="w-full py-3 rounded-lg bg-black text-white text-base hover:bg-gray-800"
+          onClick={() => navigate("/Checkout")}
+          className="w-full py-3 rounded-lg bg-emerald-600 text-black text-base hover:bg-emerald-700"
         >
-          Place your order
+          Checkout
         </button>
-        <button
-          type="button"
-          onClick={() => navigate(-1)}
-          className="mt-3 w-full py-2 rounded-lg border border-black bg-transparent text-black font-bold text-sm hover:bg-gray-100"
-        >
-          &lt; Back
-        </button>
-      </aside>
+        
+      </aside> 
     </div>
   );
 }
