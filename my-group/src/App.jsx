@@ -4,7 +4,7 @@ import Sidebar from "./components/Sidebar";
 import BagPanel from "./components/BagPanel";
 import Menu from "./pages/Menu";
 import Store from "./pages/Store";
-import Checkout from "./pages/Checkout";
+import Bag from "./pages/Bag";
 import AddPayment from "./pages/AddPayment";
 import ProductDetail from "./components/ProductDetail"; // <-- fixed import path
 import { BagProvider } from "./context/BagContext";
@@ -23,7 +23,7 @@ export default function App() {
               <Route path="/menu" element={<Menu searchQuery={searchQuery} />} />
               <Route path="/store" element={<Store searchQuery={searchQuery} />} />
               <Route path="/detail/:id" element={<ProductDetail />} />
-              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/bag" element={<Bag />} />
               <Route path="/addPayment" element={<AddPayment />} />
             </Routes>
           </main>

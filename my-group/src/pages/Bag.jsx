@@ -5,7 +5,7 @@ import PRODUCTS from "../data/products";
 import RatingStars from "../components/RatingStars";
 import { money } from "../utils/format";
 
-export default function Checkout() {
+export default function Bag() {
   const { bag, addToBag, removeFromBag } = useBag();
   const navigate = useNavigate();
 

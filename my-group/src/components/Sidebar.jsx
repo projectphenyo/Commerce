@@ -8,7 +8,7 @@ import logoutIcon from "../assets/icons/log-out.svg";
 const navItems = [
   { id: "menu", label: "Menu", icon: menuIcon },
   { id: "store", label: "Store", icon: storefrontIcon },
-  { id: "checkout", label: "Checkout", icon: bagIcon },
+  { id: "bag", label: "Bag", icon: bagIcon },
 ];
 
 export default function Sidebar({ currentPage, onNavigate }) {
@@ -16,7 +16,7 @@ export default function Sidebar({ currentPage, onNavigate }) {
 
   const handleClick = (id) => {
     if (onNavigate) onNavigate(id);
-    if (id === "menu" || id === "store" || id === "checkout") {
+    if (id === "menu" || id === "store" || id === "bag") {
       navigate(`/${id}`);
     }
   };

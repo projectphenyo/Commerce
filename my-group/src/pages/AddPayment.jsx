@@ -12,7 +12,7 @@ export default function AddPaymentMethod() {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Payment method added!");
-    navigate("/checkout");
+    navigate("/bag");
   };
 
   return (  
