@@ -4,25 +4,26 @@ import { useBag } from "../context/BagContext";
 import SearchBar from "../components/SearchBar";
 import ProductList from "../components/ProductList";
 
-export default function Menu() {
+export default function Store() {
   const { addToBag } = useBag();
 
-  // This is the state for the search input
+  // State for search input
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
-     <div className="flex flex-col h-full w-full bg-gray-100">
+    <div className="flex flex-col min-h-screen w-full bg-gray-100">
       {/* Header with Search Bar */}
-      <header className="mb-4 p-4 bg-gray-100">
-        {/* Pass both value and state updater */}
+      <header className="p-4 bg-gray-100 sticky top-0 z-30">
+        {/* Search input */}
         <SearchBar value={searchQuery} onChange={setSearchQuery} />
       </header>
 
       {/* Product Grid */}
-      <section className="p-6 flex-1">
+      <main className="flex-1 p-4 md:p-6">
         <ProductList searchQuery={searchQuery} onAdd={addToBag} />
-      </section>
+      </main>
     </div>
   );
 }
+
 

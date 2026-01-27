@@ -17,19 +17,18 @@ export default function Bag() {
   const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
       {/* LEFT: Items */}
-      <div className="flex-1 p-8 overflow-y-auto">
+      <div className="flex-1 p-4 md:p-8 overflow-y-auto">
         <h2 className="text-2xl font-bold mb-6">Check your Bag Items</h2>
 
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6">
           {items.map((item) => (
-            <div key={item.id} className="bg-white rounded-xl p-4 flex gap-4 shadow">
-              
+            <div key={item.id} className="bg-white rounded-xl p-4 flex flex-col md:flex-row gap-4 shadow">
               <img
                 src={item.src}
                 alt={item.name}
-                className="w-28 h-28 object-contain"
+                className="w-full md:w-28 h-40 md:h-28 object-contain mx-auto"
               />
 
               <div className="flex-1">
@@ -48,7 +47,7 @@ export default function Bag() {
               </div>
 
               {/* Quantity controls */}
-              <div className="flex flex-col items-center justify-center gap-2">
+              <div className="flex flex-row md:flex-col items-center justify-center gap-2 mt-2 md:mt-0">
                 <button onClick={() => addToBag(item.id)} className="text-green-600 text-xl">+</button>
                 <span>{item.quantity}</span>
                 <button onClick={() => removeFromBag(item.id)} className="text-red-500 text-xl">−</button>
@@ -59,19 +58,19 @@ export default function Bag() {
       </div>
 
       {/* Divider */}
-      <div className="w-px bg-gray-300" />
+      <div className="hidden md:block w-px bg-gray-300" />
 
       {/* RIGHT: Summary */}
-      <div className="w-80 bg-white p-6 flex flex-col">
+      <div className="w-full md:w-80 bg-white p-4 md:p-6 flex flex-col">
         <h3 className="text-xl font-bold mb-4">Bag</h3>
 
-        <div className="flex gap-2 mb-4">
+        <div className="flex gap-2 mb-4 overflow-x-auto">
           {items.slice(0, 4).map((item) => (
             <img
               key={item.id}
               src={item.src}
               alt={item.name}
-              className="w-12 h-12 object-contain border rounded"
+              className="w-12 h-12 object-contain border rounded flex-shrink-0"
             />
           ))}
         </div>
@@ -93,6 +92,7 @@ export default function Bag() {
     </div>
   );
 }
+
 
 
       {/* Right: Bag Preview
