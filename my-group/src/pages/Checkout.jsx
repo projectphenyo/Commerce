@@ -34,16 +34,16 @@ export default function Checkout() {
   const orderTotal = itemsTotal + shipping + gst - giftCard;
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-7xl mx-auto flex gap-8">
+    <div className="min-h-screen bg-gray-100 p-6">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8">
 
         {/* LEFT COLUMN */}
         <div className="flex-1 space-y-6">
 
           {/* Shipping */}
-          <div className="bg-white rounded-xl shadow p-4">
-            <h2 className="font-semibold text-lg">SHIPPING ADDRESS</h2>
-            <div className="mt-2 text-gray-700">
+          <div className="bg-white rounded-2xl shadow-md p-4 sm:p-6">
+            <h2 className="font-semibold text-lg sm:text-xl">SHIPPING ADDRESS</h2>
+            <div className="mt-2 text-gray-700 space-y-1">
               <p>{fullName}</p>
               <p>{street}</p>
               <p>{city}, {state}</p>
@@ -51,15 +51,15 @@ export default function Checkout() {
             </div>
             <button
               onClick={() => navigate("/AddAddress")}
-              className="mt-3 border border-black rounded-lg px-4 py-2 hover:bg-gray-100"
+              className="mt-3 border border-black rounded-lg px-4 py-2 hover:bg-gray-100 transition"
             >
               Change
             </button>
           </div>
 
           {/* Payment */}
-          <div className="bg-white rounded-xl shadow p-4">
-            <h2 className="font-semibold text-lg">PAYMENT METHOD</h2>
+          <div className="bg-white rounded-2xl shadow-md p-4 sm:p-6">
+            <h2 className="font-semibold text-lg sm:text-xl">PAYMENT METHOD</h2>
             <div className="mt-2 space-y-2 text-gray-700">
               <p className="flex items-center gap-2">
                 <img src={card} className="w-5 h-5" /> {paymentMethod}
@@ -73,38 +73,58 @@ export default function Checkout() {
             </div>
             <button
               onClick={() => navigate("/AddPayment")}
-              className="mt-3 border border-black rounded-lg px-4 py-2 hover:bg-gray-100"
+              className="mt-3 border border-black rounded-lg px-4 py-2 hover:bg-gray-100 transition"
             >
               Change
             </button>
           </div>
 
-          {/* Review Your Bag */}
-          <div className="bg-white rounded-xl shadow p-4">
-            <h2 className="font-semibold text-lg mb-4">REVIEW YOUR BAG</h2>
+          {/* REVIEW YOUR BAG — Responsive Version */}
+          <div className="bg-white rounded-2xl shadow-md p-4 sm:p-6 md:p-8 w-full">
+            <h2 className="font-semibold text-lg sm:text-xl mb-4">REVIEW YOUR BAG</h2>
 
             {items.map((item) => (
-              <div key={item.id} className="flex gap-4 py-4 border-b last:border-b-0">
-                <img src={item.src} className="w-20 h-20 object-contain" />
+              <div
+                key={item.id}
+                className="flex flex-col sm:flex-row gap-4 py-4 border-b last:border-b-0"
+              >
+                <img
+                  src={item.src}
+                  alt={item.name}
+                  className="w-full sm:w-20 h-20 sm:h-20 object-contain rounded-xl mx-auto sm:mx-0"
+                />
 
-                <div className="flex-1">
-                  <h3 className="font-semibold">{item.name}</h3>
-                  <p className="text-sm text-gray-500">{item.variant}</p>
+                <div className="flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-semibold text-base sm:text-lg truncate">{item.name}</h3>
+                    <p className="text-sm text-gray-500">{item.variant}</p>
 
-                  <div className="flex items-center gap-2 mt-1">
-                    <RatingStars rating={item.rating} />
-                    <span className="text-sm">{item.rating}/5</span>
+                    <div className="flex items-center gap-2 mt-1">
+                      <RatingStars rating={item.rating} />
+                      <span className="text-sm">{item.rating}/5</span>
+                    </div>
                   </div>
 
-                  <div className="flex justify-between items-center mt-2">
-                    <span className="font-semibold">
+                  {/* Price & Quantity Controls */}
+                  <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center mt-2 gap-2">
+                    <span className="font-semibold text-base sm:text-lg">
                       ${money(item.price)} × {item.quantity}
                     </span>
 
                     <div className="flex items-center gap-3 text-lg">
-                      <button onClick={() => removeFromBag(item.id)} className="text-red-500">−</button>
+                      <button
+                        onClick={() => removeFromBag(item.id)}
+                        className="text-red-500 font-bold w-8 h-8 rounded-full flex items-center justify-center hover:bg-red-100 transition"
+                      >
+                        −
+                      </button>
                       <span>{item.quantity}</span>
-                      <button onClick={() => addToBag(item.id)} className="text-green-600">+</button>
+                      <button
+                        onClick={() => addToBag(item.id)}
+                        className="text-green-600 font-bold w-8 h-8 rounded-full flex items-center justify-center hover:bg-green-100 transition"
+                      >
+                        +
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -114,7 +134,7 @@ export default function Checkout() {
         </div>
 
         {/* RIGHT COLUMN — ORDER SUMMARY */}
-        <aside className="w-72 bg-white rounded-xl shadow-lg p-5 h-fit sticky top-6">
+        <aside className="w-full lg:w-72 bg-white rounded-2xl shadow-lg p-5 h-fit sticky top-6">
           <h3 className="font-semibold text-lg mb-3">Order Summary</h3>
 
           <div className="flex justify-between mb-2">
@@ -143,14 +163,14 @@ export default function Checkout() {
 
           <button
             onClick={() => navigate("/Confirmation")}
-            className="w-full bg-black text-white py-2.5 rounded-lg hover:opacity-90"
+            className="w-full bg-black text-white py-2.5 rounded-lg hover:opacity-90 transition"
           >
             Place order
           </button>
 
           <button
             onClick={() => navigate("/Bag")}
-            className="w-full mt-3 border border-black py-2 rounded-lg hover:bg-gray-100"
+            className="w-full mt-3 border border-black py-2 rounded-lg hover:bg-gray-100 transition"
           >
             &lt; Back
           </button>
@@ -159,5 +179,3 @@ export default function Checkout() {
     </div>
   );
 }
-
-
