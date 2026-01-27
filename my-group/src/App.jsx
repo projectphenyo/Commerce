@@ -7,6 +7,7 @@ import Store from "./pages/Store";
 import Bag from "./pages/Bag";
 import AddPayment from "./pages/AddPayment";
 import AddAddress from "./pages/AddAddress";
+import Confirmation from "./pages/Confirmation";
 import Checkout from "./pages/Checkout";  
 import ProductDetail from "./components/ProductDetail"; // <-- fixed import path
 import { BagProvider } from "./context/BagContext";
@@ -28,6 +29,7 @@ export default function App() {
               <Route path="/bag" element={<Bag />} />
               <Route path="/addPayment" element={<AddPayment />} />
               <Route path="/addAddress" element={<AddAddress />} />
+              <Route path="/confirmation" element={<Confirmation />} />
               <Route path="/checkout" element={<Checkout />} />
             </Routes>
           </main>

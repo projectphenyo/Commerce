@@ -111,7 +111,7 @@ export default function AddAddress() {
       </div>
       <button
         type="button"
-        onClick={() => navigate("/AddPayment")}
+        onClick={() => navigate("/Confirmation")}
         className="w-full py-3 rounded-lg bg-black text-white text-base hover:bg-gray-800"
       >
         Place your order
