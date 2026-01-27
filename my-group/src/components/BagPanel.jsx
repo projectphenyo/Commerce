@@ -22,7 +22,11 @@ export default function BagPanel() {
   if (isBagPage || isCheckoutPage) return null;
 
   return (
-    <aside className="hidden sm:flex fixed top-0 right-0 h-screen w-72 md:w-80 flex-col bg-[#EDEDED] p-4 z-40">
+   <aside
+  className="fixed top-0 right-0 h-screen w-72 md:w-80 flex-col p-4 bg-gray-100 transform transition-transform duration-300"
+  style={{ backgroundColor: "#EDEDED" }}
+>
+
       <div className="p-4 bg-white rounded-xl mb-3">
         <h2 className="text-xl font-bold text-center">Bag</h2>
         <p className="text-sm text-center text-gray-500">
