@@ -30,7 +30,7 @@ export default function ProductDetail() {
   const [mainImage, setMainImage] = useState(productSVG(product));
 
   return (
-    <div className="max-w-7xl mx-auto p-6">
+     <div className="max-w-7xl mx-auto p-6 bg-gray-100">
       {/* Header */}
       <header className="flex items-center gap-4 mb-6">
         <button
