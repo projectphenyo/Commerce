@@ -9,7 +9,7 @@ export default function RatingStars({ rating = 0 }) {
     <span aria-label={`Rating ${rating} out of 5`} className="inline-flex gap-0.5">
       {[...Array(5)].map((_, i) => {
         const idx = i + 1;
-        const fill = idx <= full ? "currentColor" : "rgba(19,195,139,.22)";
+        const fill = idx <= full ? "rgb(19,195,139)"  : "rgba(19,195,139,.22)";
         const isHalf = half && idx === full + 1;
         return (
           <svg
@@ -23,8 +23,8 @@ export default function RatingStars({ rating = 0 }) {
             {isHalf && (
               <defs>
                 <linearGradient id={`half${i}`}>
-                  <stop offset="50%" stopColor="currentColor" />
-                  <stop offset="50%" stopColor="rgba(19,195,139,.22)" />
+                  <stop offset="50%" stopColor="rgb(19,195,139)" />
+                  <stop offset="50%" stopColor="rgba(19,195,139,0.25)" />
                 </linearGradient>
               </defs>
             )}
