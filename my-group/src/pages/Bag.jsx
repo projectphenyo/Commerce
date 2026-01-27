@@ -17,7 +17,7 @@ export default function Bag() {
   const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
+    <div className="flex flex-col md:flex-row min-h-screen bg-gray-50">
       {/* LEFT: Items */}
       <div className="flex-1 p-4 md:p-8 overflow-y-auto">
         <h2 className="text-2xl font-bold mb-6">Check your Bag Items</h2>

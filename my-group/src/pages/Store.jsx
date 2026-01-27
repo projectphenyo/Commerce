@@ -11,9 +11,9 @@ export default function Store() {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <div className="flex flex-col min-h-screen w-full bg-gray-100">
+    <div className="flex flex-col min-h-screen w-full bg-gray-50">
       {/* Header with Search Bar */}
-      <header className="p-4 bg-gray-100 sticky top-0 z-30">
+      <header className="p-4 bg-gray-50 sticky top-0 z-30">
         {/* Search input */}
         <SearchBar value={searchQuery} onChange={setSearchQuery} />
       </header>
