@@ -1,121 +1,156 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useBag } from "../context/BagContext";
+import PRODUCTS from "../data/products";
+import RatingStars from "../components/RatingStars";
+import { money } from "../utils/format";
 import gift from "../assets/icons/gift.svg";
 import card from "../assets/icons/card.svg";
-import selectedTrue from "../assets/icons/true.svg";  
-import { useNavigate } from "react-router-dom";
+import selectedTrue from "../assets/icons/true.svg";
 
 export default function Checkout() {
   const navigate = useNavigate();
+  const { bag, addToBag, removeFromBag } = useBag();
 
-  // Address state
-  const [fullName, setFullName] = useState("John Maker");
-  const [street, setStreet] = useState("123 Plae Grond Street");
-  const [city, setCity] = useState("Vermont");
-  const [state, setState] = useState("California");
-  const [country, setCountry] = useState("United States of America");
+  const [fullName] = useState("John Maker");
+  const [street] = useState("123 Plae Grond Street");
+  const [city] = useState("Vermont");
+  const [state] = useState("California");
+  const [country] = useState("United States of America");
 
-  // Payment State
-  const [paymentMethod, setPaymentMethod] = useState("Master ending in 1252");
-  const [giftCardreal, setGiftCard] = useState("$53.21 gift card balance");
-  const [billingaddress, setBillingaddress] = useState("Billing address same as shipping address");
+  const [paymentMethod] = useState("Master ending in 1252");
+  const [giftCardreal] = useState("$53.21 gift card balance");
+  const [billingaddress] = useState("Billing address same as shipping address");
 
-  // Order summary placeholder values
-  const itemsTotal = 5849.37;
+  const items = Array.from(bag.entries()).map(([id, qty]) => {
+    const product = PRODUCTS.find((p) => p.id === id);
+    return { ...product, quantity: qty };
+  });
+
+  const itemsTotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const shipping = 6.99;
   const gst = 760.41;
   const giftCard = 0;
   const orderTotal = itemsTotal + shipping + gst - giftCard;
 
-  const money = (value) => value.toFixed(2);
-
   return (
-    <div className="min-h-screen bg-gray-50 p-4 md:p-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-        {/* Left column: address + payment */}
-        <div className="space-y-4">
-          {/* Shipping Address Card */}
-          <div className="w-full bg-white rounded-xl shadow-md p-4">
-            <h2 className="text-lg font-semibold">SHIPPING ADDRESS</h2>
-            <div className="space-y-1 text-gray-700 mt-2">
+    <div className="min-h-screen bg-gray-50 p-6">
+      <div className="max-w-7xl mx-auto flex gap-8">
+
+        {/* LEFT COLUMN */}
+        <div className="flex-1 space-y-6">
+
+          {/* Shipping */}
+          <div className="bg-white rounded-xl shadow p-4">
+            <h2 className="font-semibold text-lg">SHIPPING ADDRESS</h2>
+            <div className="mt-2 text-gray-700">
               <p>{fullName}</p>
               <p>{street}</p>
               <p>{city}, {state}</p>
               <p>{country}</p>
             </div>
             <button
-              type="button"
               onClick={() => navigate("/AddAddress")}
-              className="mt-3 w-full md:w-auto border border-black rounded-lg py-2 hover:bg-gray-100"
+              className="mt-3 border border-black rounded-lg px-4 py-2 hover:bg-gray-100"
             >
               Change
             </button>
           </div>
 
-          {/* Payment Method Card */}
-          <div className="w-full bg-white rounded-xl shadow-md p-4">
-            <h2 className="text-lg font-semibold">PAYMENT METHOD</h2>
-            <div className="space-y-2 text-gray-700 mt-2">
+          {/* Payment */}
+          <div className="bg-white rounded-xl shadow p-4">
+            <h2 className="font-semibold text-lg">PAYMENT METHOD</h2>
+            <div className="mt-2 space-y-2 text-gray-700">
               <p className="flex items-center gap-2">
-                <img src={card} alt="Card" className="w-6 h-6" />
-                {paymentMethod}
+                <img src={card} className="w-5 h-5" /> {paymentMethod}
               </p>
               <p className="flex items-center gap-2">
-                <img src={gift} alt="Gift" className="w-6 h-6" />
-                {giftCardreal}
+                <img src={gift} className="w-5 h-5" /> {giftCardreal}
               </p>
               <p className="flex items-center gap-2">
-                <img src={selectedTrue} alt="Billing" className="w-6 h-6" />
-                {billingaddress}
+                <img src={selectedTrue} className="w-5 h-5" /> {billingaddress}
               </p>
             </div>
             <button
-              type="button"
               onClick={() => navigate("/AddPayment")}
-              className="mt-3 w-full md:w-auto border border-black rounded-lg py-2 hover:bg-gray-100"
+              className="mt-3 border border-black rounded-lg px-4 py-2 hover:bg-gray-100"
             >
               Change
             </button>
           </div>
+
+          {/* Review Your Bag */}
+          <div className="bg-white rounded-xl shadow p-4">
+            <h2 className="font-semibold text-lg mb-4">REVIEW YOUR BAG</h2>
+
+            {items.map((item) => (
+              <div key={item.id} className="flex gap-4 py-4 border-b last:border-b-0">
+                <img src={item.src} className="w-20 h-20 object-contain" />
+
+                <div className="flex-1">
+                  <h3 className="font-semibold">{item.name}</h3>
+                  <p className="text-sm text-gray-500">{item.variant}</p>
+
+                  <div className="flex items-center gap-2 mt-1">
+                    <RatingStars rating={item.rating} />
+                    <span className="text-sm">{item.rating}/5</span>
+                  </div>
+
+                  <div className="flex justify-between items-center mt-2">
+                    <span className="font-semibold">
+                      ${money(item.price)} × {item.quantity}
+                    </span>
+
+                    <div className="flex items-center gap-3 text-lg">
+                      <button onClick={() => removeFromBag(item.id)} className="text-red-500">−</button>
+                      <span>{item.quantity}</span>
+                      <button onClick={() => addToBag(item.id)} className="text-green-600">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Right column: Order Summary */}
-        <aside
-          className="bg-white rounded-xl shadow-lg p-5 md:sticky md:top-5 text-sm text-gray-500 font-semibold"
-          aria-label="Order Summary"
-        >
-          <h3 className="text-lg font-semibold mb-2 text-black">Order Summary</h3>
-          <div className="mb-3 flex justify-between">
+        {/* RIGHT COLUMN — ORDER SUMMARY */}
+        <aside className="w-72 bg-white rounded-xl shadow-lg p-5 h-fit sticky top-6">
+          <h3 className="font-semibold text-lg mb-3">Order Summary</h3>
+
+          <div className="flex justify-between mb-2">
             <span>Items:</span>
-            <span>$ {money(itemsTotal)}</span>
+            <span>${money(itemsTotal)}</span>
           </div>
-          <div className="mb-3 flex justify-between">
+          <div className="flex justify-between mb-2">
             <span>Shipping:</span>
-            <span>$ {shipping.toFixed(2)}</span>
+            <span>${shipping.toFixed(2)}</span>
           </div>
-          <div className="mb-3 flex justify-between">
+          <div className="flex justify-between mb-2">
             <span>Estimated GST:</span>
-            <span>$ {gst.toFixed(2)}</span>
+            <span>${gst.toFixed(2)}</span>
           </div>
-          <div className="mb-3 flex justify-between">
+          <div className="flex justify-between mb-2">
             <span>Gift Card:</span>
-            <span>$ {giftCard.toFixed(2)}</span>
+            <span>${giftCard.toFixed(2)}</span>
           </div>
-          <hr className="my-3 border-gray-300" />
-          <div className="mb-5 flex justify-between text-red-600 font-extrabold text-lg">
-            <span>Order Total:</span>
-            <span>$ {money(orderTotal)}</span>
+
+          <hr className="my-3" />
+
+          <div className="flex justify-between font-bold text-red-600 mb-4">
+            <span>Total:</span>
+            <span>${money(orderTotal)}</span>
           </div>
+
           <button
-            type="button"
             onClick={() => navigate("/Confirmation")}
-            className="w-full py-3 rounded-lg bg-black text-white text-base hover:bg-gray-800"
+            className="w-full bg-black text-white py-2.5 rounded-lg hover:opacity-90"
           >
-            Place your order
+            Place order
           </button>
+
           <button
-            type="button"
             onClick={() => navigate("/Bag")}
-            className="mt-3 w-full py-2 rounded-lg border border-black bg-transparent text-black font-bold text-sm hover:bg-gray-100"
+            className="w-full mt-3 border border-black py-2 rounded-lg hover:bg-gray-100"
           >
             &lt; Back
           </button>
@@ -124,3 +159,5 @@ export default function Checkout() {
     </div>
   );
 }
+
+

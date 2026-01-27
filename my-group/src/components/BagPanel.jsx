@@ -16,7 +16,9 @@ export default function BagPanel() {
   }, [bag]);
 
   const isBagPage = location.pathname === "/bag";
-  const isCheckoutPage = location.pathname === "/checkout";
+  //const isCheckoutPage = location.pathname === "/checkout";
+  const isCheckoutPage = location.pathname.toLowerCase() === "/checkout";
+
 
   // Do NOT show side panel on Bag or Checkout pages
   if (isBagPage || isCheckoutPage) return null;
