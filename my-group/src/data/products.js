@@ -48,6 +48,7 @@ const products = [
     rating: 4.7,
     miniDescription: "The dual-camera classic. Reliable, fast, and splash-resistant.",
     fullDescription: "Features a 6.1-inch Liquid Retina HD display and the A13 Bionic chip. Capture stunning 4K video and Night Mode photos with the dual 12MP Ultra Wide and Wide cameras. All-day battery life meets a durable glass-and-aluminum design.",
+
   },
   {
     id: "4",
@@ -58,6 +59,7 @@ const products = [
     rating: 4.7,
     miniDescription: "The dual-camera classic. Reliable, fast, and splash-resistant.",
     fullDescription: "Features a 6.1-inch Liquid Retina HD display and the A13 Bionic chip. Capture stunning 4K video and Night Mode photos with the dual 12MP Ultra Wide and Wide cameras. All-day battery life meets a durable glass-and-aluminum design.",
+
   },
   {
     id: "5",
@@ -68,6 +70,7 @@ const products = [
     rating: 4.7,
     miniDescription: "The dual-camera classic. Reliable, fast, and splash-resistant.",
     fullDescription: "Features a 6.1-inch Liquid Retina HD display and the A13 Bionic chip. Capture stunning 4K video and Night Mode photos with the dual 12MP Ultra Wide and Wide cameras. All-day battery life meets a durable glass-and-aluminum design.",
+
   },
   {
     id: "6",
@@ -127,7 +130,7 @@ const products = [
     src: Iphone13Navy,
     rating: 4.2,
     miniDescription: "Pro-grade photography meets a 120Hz ProMotion display.",
-    fullDesciption: "The Pro camera system gets its biggest advancement ever with Macro photography and ProRes video. The 6.1-inch Super Retina XDR display with ProMotion makes every scroll feel butter-smooth.",
+    fullDescription: "The Pro camera system gets its biggest advancement ever with Macro photography and ProRes video. The 6.1-inch Super Retina XDR display with ProMotion makes every scroll feel butter-smooth.",
   },
    {
     id: "12",

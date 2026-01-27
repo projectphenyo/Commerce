@@ -14,50 +14,42 @@ export default function ProductDetailPage({ productId, onNavigate }) {
 
   return (
     <div className="product-detail p-4 max-w-3xl mx-auto" tabIndex={0}>
-      {/* Back button */}
       <button
         type="button"
         className="btn-secondary mb-4"
         onClick={() => onNavigate('store')}
-        aria-label="Back to Store"
       >
         &lt; Back to Store
       </button>
 
-      {/* Product image */}
-      <div
-        className="detail-thumb mb-4"
-        aria-label={`Image of ${product.name}`}
-      >
+      <div className="detail-thumb mb-4">
         {product.name}
       </div>
 
-      {/* Product title */}
-      <h2 className="detail-name text-2xl font-bold mb-2">{product.name}</h2>
+      {/* Name */}
+      <h2 className="text-2xl font-bold mb-1">{product.name}</h2>
 
-      {/* Subtitle */}
-      <div className="detail-subtitle text-gray-600 mb-2">{product.subtitle}</div>
+      {/* Variant */}
+      <div className="text-gray-600 mb-2">{product.subtitle}</div>
+
+      {/* Rating */}
+      <div className="mb-2">
+        <RatingStars rating={product.rating} color="green" />
+      </div>
 
       {/* Price */}
-      <div className="detail-price text-xl font-semibold mb-1">
+      <div className="text-xl font-semibold mb-1">
         ${money(product.price)}
       </div>
 
-      {/* Mini description directly below price */}
-      {product.miniDescription && (
-        <div className="text-gray-500 mb-4 italic">
-          {product.miniDescription}
+      {/* Mini Description */}
+      {product.miniDesciption && (
+        <div className="text-gray-500 italic mb-4">
+          {product.miniDesciption}
         </div>
       )}
 
-      {/* Full description below mini description */}
-      {product.description && (
-        <div className="text-gray-700 mb-4">
-          {product.description}
-        </div>
-      )}
-
-      {/* Add to Bag button */}
+      {/* Add to Bag Button */}
       <button
         type="button"
         className="btn-primary mb-4"
@@ -66,22 +58,19 @@ export default function ProductDetailPage({ productId, onNavigate }) {
           alert(`${product.name} added to bag.`);
         }}
       >
-        Add to Bag
+        Add To Bag
       </button>
 
-      {/* RatingStars with green color */}
-      <div className="mb-4">
-        <RatingStars rating={product.rating} color="green" />
-      </div>
-
-      {/* View Bag / Checkout button */}
-      <button
-        type="button"
-        className="btn-secondary mt-4"
-        onClick={() => onNavigate('checkout')}
-      >
-        View Bag
-      </button>
+      {/* Full Description */}
+      {product.description && (
+        <div className="text-gray-700 leading-relaxed">
+          {product.fullDescription}
+        </div>
+      )}
     </div>
   );
 }
+
+
+
+     
