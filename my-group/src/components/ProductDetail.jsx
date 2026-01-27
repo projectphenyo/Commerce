@@ -37,7 +37,7 @@ export default function ProductDetail() {
           type="button"
           aria-label="Back"
           onClick={() => navigate(-1)}
-          className="flex items-center gap-1 text-blue-600 hover:underline"
+          className="flex items-center gap-1 text-black hover:underline"
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
             <path d="M15 18l-6-6 6-6" />
