@@ -50,24 +50,32 @@ export default function ProductDetail() {
       {/* Main Section */}
       <div className="flex flex-col md:flex-row gap-6">
         {/* Left: vertical mini images */}
-        <div className="flex flex-row md:flex-col gap-3 md:w-24 h-[400px]"> 
-          {[0, 1, 2].map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => setMainImage(productSVG(product))}
-              className="border rounded p-1 flex-1 hover:scale-105 transition-transform"
-              aria-label={`View mini image ${i + 1}`}
-            >
-              {productSVG(product)}
-            </button>
-          ))}
-        </div>
+        <div className="flex flex-row md:flex-col gap-3 md:w-24">
+  {[0, 1, 2].map((_, i) => (
+    <button
+      key={i}
+      type="button"
+      onClick={() => setMainImage(product.src)} // set the main image to the clicked mini image
+      className="flex-1 bg-white rounded-2xl p-4 flex items-center justify-center h-[400px]">
 
-        {/* Center: main image */}
-        <div className="flex-1 bg-white rounded-2xl p-4 flex items-center justify-center h-[400px]">
-          {mainImage}
-        </div>
+      <img
+        src={product.src}
+        alt={`${product.name} thumbnail ${i + 1}`}
+        className="w-full h-full object-cover rounded"
+      />
+    </button>
+  ))}
+</div>
+
+{/* Center: main image */}
+<div className="flex-1 bg-white rounded-2xl p-4 flex items-center justify-center h-[400px]">
+  <img
+    src={product.src}
+    alt={product.name}
+    className="w-full h-full object-contain rounded"
+  />
+</div>
+
 
         {/* Right: product info */}
         <div className="md:w-80 flex flex-col gap-2">
@@ -101,6 +109,8 @@ export default function ProductDetail() {
       {/* Full Description */}
       <div>
         <h1 className="text-black font-bold ">Description</h1>
+        </div>
+        <div>
         <p className="text-gray-700 leading-relaxed">{product.fullDescription}</p>
       </div>
     </div>

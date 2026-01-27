@@ -1,79 +1,65 @@
 import React, { useEffect, useState } from "react";
 import { useBag } from "../context/BagContext";
 import PRODUCTS from "../data/products";
-import { money } from "../utils/format";
 import bagIcon from "../assets/icons/bag-handle.svg";
-import { useNavigate } from "react-router-dom";
 import BagItem from "./BagItem";
-
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function BagPanel() {
-  const { bag, bagCount, clearBag, addToBag, removeFromBag } = useBag();
-   const [items, setItems] = useState([]);
+  const { bag, bagCount, addToBag, removeFromBag } = useBag();
+  const [items, setItems] = useState([]);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    const arr = Array.from(bag.entries());
-    setItems(arr);
+    setItems(Array.from(bag.entries()));
   }, [bag]);
 
-  const total = items.reduce((acc, [id, qty]) => {
-    const p = PRODUCTS.find((x) => x.id === id);
-    return p ? acc + p.price * qty : acc;
-  }, 0);
+  const isBagPage = location.pathname === "/bag";
+  const isCheckoutPage = location.pathname === "/checkout";
 
-   return (   
-<aside
-  aria-label="Bag panel"
-  className="hidden sm:flex absolute top-0 right-0 h-full w-72 md:w-80 flex-col p-4"
-  style={{ backgroundColor: "#EDEDED" }}
+  // Do NOT show side panel on Bag or Checkout pages
+  if (isBagPage || isCheckoutPage) return null;
 
->
-  {/* Header */}
-  <div className="p-4 border-b border-border bg-white">
-    <h2 className="text-2xl font-bold text-foreground text-center">Bag</h2>
-  </div>
-
-  {/* Item count */}
-  <div className="px-4 py-2 bg-white text-sm text-gray-600 ">
-    {bagCount()} item{bagCount() !== 1 ? "s" : ""}
-  </div>
-
-  {/* Items preview */}
-  <div
-    aria-label="Bag items preview"
-    className="flex flex-col gap-3 flex-1 overflow-auto px-4 py-4 bg-white"
-  >
-    {items.length === 0 && (
-      <div className="flex flex-col items-center justify-center text-muted-foreground py-5">
-        <p className="text-sm">Your bag is empty.</p>
+  return (
+    <aside className="hidden sm:flex fixed top-0 right-0 h-screen w-72 md:w-80 flex-col bg-[#EDEDED] p-4 z-40">
+      <div className="p-4 bg-white rounded-xl mb-3">
+        <h2 className="text-xl font-bold text-center">Bag</h2>
+        <p className="text-sm text-center text-gray-500">
+          {bagCount()} item{bagCount() !== 1 ? "s" : ""}
+        </p>
       </div>
-    )}
-    {items.map(([id, qty]) => {
-      const p = PRODUCTS.find((x) => x.id === id);
-      if (!p) return null;
-      return (
-        <BagItem
-          key={id}
-          product={p}
-          quantity={qty}
-          onIncrease={addToBag}
-          onDecrease={removeFromBag}
-        />
-      );
-    })}
-  </div>
 
-  {/* View Bag button */}
-  <div className="p-4 border-t border-border bg-white">
-    <button
-      className="w-full h-12 bg-emerald-600 text-primary-foreground rounded-xl font-medium flex items-center justify-center gap-2 hover:opacity-90 hover:shadow-md transition-all"
-      onClick={() => navigate("/Bag")}
-    >
-      <img src={bagIcon} alt="Shopping Bag" className=" w-4 h-4 " />
-      View Bag
-    </button>
-  </div>
+      <div className="flex flex-col gap-3 flex-1 overflow-auto bg-white rounded-xl p-3">
+        {items.length === 0 && (
+          <p className="text-center text-gray-400 mt-10">Your bag is empty</p>
+        )}
+        {items.map(([id, qty]) => {
+          const p = PRODUCTS.find((x) => x.id === id);
+          if (!p) return null;
+          return (
+            <BagItem
+              key={id}
+              product={p}
+              quantity={qty}
+              onIncrease={addToBag}
+              onDecrease={removeFromBag}
+            />
+          );
+        })}
+      </div>
+
+      <button
+        className="mt-4 h-12 bg-black text-white rounded-xl font-medium flex items-center justify-center gap-2 hover:opacity-90"
+        onClick={() => navigate("/bag")}
+      >
+        <img src={bagIcon} alt="Bag" className="w-4 h-4" />
+        View Bag
+      </button>
+    </aside>
+  );
+}
+
 
   {/* Bag total
   <div aria-label="Bag total" className="flex justify-between font-bold px-4 py-3 bg-white border-t border-border">
@@ -108,6 +94,4 @@ export default function BagPanel() {
       <span>Checkout</span>
     </button>
   </div> */}
-</aside>
-  );
-}
+
