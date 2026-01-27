@@ -2,7 +2,7 @@ import React from "react";
 
 export default function SearchBar({ value, onChange }) {
   return (
-    <div className="w-full max-w-md mb-8 mx-auto">
+    <div className="w-full max-w-md mb-8 mx-auto ">
       <label
         htmlFor="search"
         className="block text-sm font-semibold text-foreground mb-2 text-left"
