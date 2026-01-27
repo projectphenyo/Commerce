@@ -76,7 +76,7 @@ export default function ProductDetail() {
         {/* Main Section */}
         <div className="flex flex-col md:flex-row gap-6">
           {/* Left: vertical mini images */}
-          <div className="flex flex-row md:flex-col gap-3 md:w-24 flex-shrink-0">
+          <div className="flex flex-row md:flex-col gap-3 md:w-24 shrink-0">
             {[0, 1, 2].map((_, i) => (
               <button
                 key={i}
