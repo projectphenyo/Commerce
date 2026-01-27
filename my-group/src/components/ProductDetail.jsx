@@ -56,7 +56,7 @@ export default function ProductDetail() {
       key={i}
       type="button"
       onClick={() => setMainImage(product.src)} // set the main image to the clicked mini image
-      className="flex-1 bg-white rounded-2xl p-4 flex items-center justify-center h-[400px]">
+      className="flex-1 bg-white rounded-2xl p-4 flex items-center justify-center h-100">
 
       <img
         src={product.src}
@@ -68,7 +68,7 @@ export default function ProductDetail() {
 </div>
 
 {/* Center: main image */}
-<div className="flex-1 bg-white rounded-2xl p-4 flex items-center justify-center h-[400px]">
+<div className="flex-1 bg-white rounded-2xl p-4 flex items-center justify-center h-100">
   <img
     src={product.src}
     alt={product.name}
