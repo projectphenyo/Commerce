@@ -70,7 +70,7 @@ export default function Bag() {
               key={item.id}
               src={item.src}
               alt={item.name}
-              className="w-12 h-12 object-contain border rounded flex-shrink-0"
+              className="w-12 h-12 object-contain border rounded shrink-0"
             />
           ))}
         </div>

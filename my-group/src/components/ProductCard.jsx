@@ -21,7 +21,7 @@ export default function ProductCard({ product, onAdd }) {
           handleNavigate();
         }
       }}
-      className="group bg-gray-100 rounded-3xl shadow-md overflow-hidden 
+      className="group rounded-3xl  overflow-hidden 
                  p-4 sm:p-6 md:p-8 hover:shadow-xl transition-shadow duration-300
                  flex flex-col w-full max-w-xs mx-auto sm:max-w-sm md:max-w-md"
     >
@@ -30,7 +30,7 @@ export default function ProductCard({ product, onAdd }) {
         <img
           src={product.src}
           alt={product.name}
-          className="w-full h-full object-contain rounded-3xl"
+          className="w-full h-70 object-contain rounded-3xl"
         />
       </div>
 
