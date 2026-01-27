@@ -28,110 +28,7 @@ export default function AddAddress() {
   const money = (value) => value.toFixed(2);
 
   return (
-//     <div className="min-h-screen bg-gray-50 p-6">
-//       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-//          {/* first: Saved Address Card */}
-//          <div className="space-y-4">
-//         <div className="w-full bg-white rounded-xl shadow-md p-4">
-//           <h2 className="text-lg font-semibold">SHIPPING ADDRESS</h2>
-//           <div className="space-y-1 text-gray-700">
-//             <p>{fullName}</p>
-//             <p>{street}</p>
-//             <p>
-//               {city}, {state}
-//             </p>
-//             <p>{country}</p>
-//           </div>
 
-//           {/* Button */}
-//           <button
-//             type="button"
-//             onClick={() => alert("Address Changed!")}
-//             className="w-50 mt-3 border border-black rounded-lg py-2 hover:bg-gray-100"
-//           >
-//             Change
-//           </button>
-//         </div>
-
-//           {/* second:Saved Payment Method Card */}
-//          <div className="w-full bg-white rounded-xl shadow-md p-4">
-//           <h2 className="text-lg font-semibold">PAYMENT METHOD</h2>
-//           <div className="space-y-1 text-gray-700">
-//               <p className="flex items-center gap-2">
-//   <img src={card} alt={card} className="w-6 h-6" />
-//   {paymentMethod}
-// </p>
-//             <p className="flex items-center gap-2">
-//   <img src={gift} alt={gift} className="w-6 h-6" />
-//               {giftCardreal}</p>
-
-//             <p className="flex items-center gap-2">
-//   <img src={selectedTrue} alt={selectedTrue} className="w-6 h-6" />
-//               {billingaddress}</p>
-//           </div>  
-
-//            {/* Button */}
-//           <button
-//             type="button"
-//             onClick={() => alert("Address Changed!")}
-//             className="w-50 mt-3 border border-black rounded-lg py-2 hover:bg-gray-100"
-//           >
-//             Change
-//           </button>
-//           </div>
-
-         
-//         </div>
-//         </div>
-
-      
-        
-
-//         {/* Right Order Summary */}
-// <aside
-//   className="w-72 bg-white rounded-xl shadow-lg p-5 sticky top-5 text-sm text-gray-500 font-semibold"
-//   aria-label="Order Summary"
-// >
-//     <h3 className="text-lg font-semibold mb-2 text-black">Order Summary</h3>
-//   <div className="mb-3 flex justify-between">
-//     <span>Items:</span>
-//     <span>$ {money(itemsTotal)}</span>
-//   </div>
-//   <div className="mb-3 flex justify-between">
-//     <span>Shipping:</span>
-//     <span>$ {shipping.toFixed(2)}</span>
-//   </div>
-//   <div className="mb-3 flex justify-between">
-//     <span>Estimated GST:</span>
-//     <span>$ {gst.toFixed(2)}</span>
-//   </div>
-//   <div className="mb-3 flex justify-between">
-//     <span>Gift Card:</span>
-//     <span>$ {giftCard.toFixed(2)}</span>
-//   </div>
-//   <hr className="my-3 border-gray-300" />
-//   <div className="mb-5 flex justify-between text-red-600 font-extrabold text-lg">
-//     <span>Order Total:</span>
-//     <span>$ {money(orderTotal)}</span>
-//   </div>
-//   <button
-//     type="button"
-//     onClick={() => navigate("/AddPayment")}
-//     className="w-full py-3 rounded-lg bg-black text-white text-base hover:bg-gray-800"
-//   >
-//     Place your order
-//   </button>
-//   <button
-//     type="button"
-//     onClick={() => navigate("/Bag")}
-//     className="mt-3 w-full py-2 rounded-lg border border-black bg-transparent text-black font-bold text-sm hover:bg-gray-100"
-//   >
-//     &lt; Back
-//   </button>
-// </aside>
-
-       
-//       </div>
 <div className="min-h-screen bg-gray-50 p-6">
   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
     {/* Left column: address + payment */}
@@ -150,7 +47,7 @@ export default function AddAddress() {
            {/* Button */}
                      <button
             type="button"
-             onClick={() => alert("Address Changed!")}
+             onClick={() => navigate("/AddAddress")}
              className="w-50 mt-3 border border-black rounded-lg py-2 hover:bg-gray-100"
           >
             Change
@@ -176,7 +73,7 @@ export default function AddAddress() {
            {/* Button */}
                      <button
             type="button"
-             onClick={() => alert("Address Changed!")}
+             onClick={() => navigate("/AddPayment")}
              className="w-50 mt-3 border border-black rounded-lg py-2 hover:bg-gray-100"
           >
             Change

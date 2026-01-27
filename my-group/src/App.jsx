@@ -6,6 +6,7 @@ import Menu from "./pages/Menu";
 import Store from "./pages/Store";
 import Bag from "./pages/Bag";
 import AddPayment from "./pages/AddPayment";
+import AddAddress from "./pages/AddAddress";
 import Checkout from "./pages/Checkout";  
 import ProductDetail from "./components/ProductDetail"; // <-- fixed import path
 import { BagProvider } from "./context/BagContext";
@@ -26,6 +27,7 @@ export default function App() {
               <Route path="/detail/:id" element={<ProductDetail />} />
               <Route path="/bag" element={<Bag />} />
               <Route path="/addPayment" element={<AddPayment />} />
+              <Route path="/addAddress" element={<AddAddress />} />
               <Route path="/checkout" element={<Checkout />} />
             </Routes>
           </main>
