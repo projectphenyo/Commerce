@@ -102,6 +102,7 @@ export default function AddPaymentMethod() {
            {/* Buttons  */}
           <button
             type="submit"
+          
             className="w-full bg-black text-white py-3 rounded-lg font-bold hover:bg-gray-800"
           >
             Add Payment Method
