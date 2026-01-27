@@ -1,6 +1,16 @@
 # 🌐 E-Commerce Store
-
 ## A Pixel‑Perfect E‑Commerce Replica from a Figma Design
+
+
+## 🎨 Original Design  
+[Figma Design Link](https://www.figma.com/design/QYKVFo356fj6PslEqpMZEM/E-Commerce-Store---Melsoft-Academy?node-id=0-1&p=f&t=avrOXFovR9vKy75L-0)
+
+## 🖼️ Screenshots
+
+![Homepage Screenshot](./assets/screenshots/homepage.png)
+![Checkout Screenshot](./assets/screenshots/checkout.png)
+
+
 
 ### 🙋 Project Developers
 - Developed by [projectphenyo](https://github.com/projectphenyo) & [Taafaadzwaa](https://github.com/Taafaadzwaa)  
@@ -36,43 +46,37 @@
     ```bash
     npm run dev
 
-### 📁 Project Structure
+📁 Project Structure
 my-group/
-│
 
-├── node_modules/         
+├── node_modules/
 
-├── public/               
+├── public/
 
-│
-├── src/                  
+├── src/
 
-│   ├── assets/            
+│   ├── assets/
 
-│   ├── components/       
+│   ├── components/
 
-│   ├── context/         
+│   ├── context/
 
-│   ├── data/            
+│   ├── data/
 
-│   ├── pages/           
+│   ├── pages/
 
-│   ├── utils/            
+│   ├── utils/
 
-│   │
+│   ├── app.css
 
-│   ├── app.css           
+│   ├── app.jsx
 
-│   ├── app.jsx          
+│   ├── index.css
 
-│   ├── index.css          
+│   ├── main.jsx
 
-│   ├── main.jsx          
+├── dependencies/
 
-│
-
-├── dependancies/        
-
-├── README                
+├── README.md             
 
 
