@@ -66,7 +66,7 @@ export default function ProductDetailPage({ productId, onNavigate }) {
           alert(`${product.name} added to bag.`);
         }}
       >
-        Add to Bag
+        Add To Bag
       </button>
 
       {/* RatingStars with green color */}
