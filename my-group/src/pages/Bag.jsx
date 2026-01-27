@@ -18,7 +18,6 @@ export default function Bag() {
 
   return (
     <div className="flex h-screen bg-gray-100">
-      
       {/* LEFT: Items */}
       <div className="flex-1 p-8 overflow-y-auto">
         <h2 className="text-2xl font-bold mb-6">Check your Bag Items</h2>

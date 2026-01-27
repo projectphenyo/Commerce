@@ -26,7 +26,7 @@ const products = [
     price: 529.99,
     src: Watch,
     rating: 4.5,
-    miniDesciption: "The Apple Watch Series 5 SE is perfect for fitness tracking, notifications, and style.",
+    miniDescription: "The Apple Watch Series 5 SE is perfect for fitness tracking, notifications, and style.",
     fullDescription: "Experience the iconic Apple Watch design with a stunning Retina display and essential safety features like Fall Detection and Emergency SOS. Tracks your daily activity, heart rate, and workouts with seamless integration into the Apple ecosystem.",
   },
   {
