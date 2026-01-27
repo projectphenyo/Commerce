@@ -10,7 +10,7 @@ export default function Menu() {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <div className="flex flex-col h-full w-full bg-gray-100">
+     <div className="flex flex-col h-full w-full bg-gray-100">
       {/* Header with Search Bar */}
       <header className="mb-4 p-4 bg-gray-100">
         {/* Pass both value and state updater */}

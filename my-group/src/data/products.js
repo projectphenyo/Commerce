@@ -186,7 +186,7 @@ const products = [
     price: 449.99,
     src: SumsungS21,
     rating: 3.0,
-    miniDesciption: "Iconic 'contour-cut' camera design and cinematic 8K video.",
+    miniDescription: "Iconic 'contour-cut' camera design and cinematic 8K video.",
     fullDesciption: "Designed to be a revolution in video and photography. With its high-resolution 108MP sensor (Ultra) and 120Hz adaptive display, the S21 series provides a flagship Android experience with blazing-fast 5G connectivity and a bold, modern aesthetic.",
   },
   {
@@ -196,8 +196,8 @@ const products = [
     price: 529.99,
     src: SumsungS21Pro,
     rating: 4.9,
-    miniDesciption: "Iconic 'contour-cut' camera design and cinematic 8K video.",
-    fullDesciption: "Designed to be a revolution in video and photography. With its high-resolution 108MP sensor (Ultra) and 120Hz adaptive display, the S21 series provides a flagship Android experience with blazing-fast 5G connectivity and a bold, modern aesthetic.",
+    miniDescription: "Iconic 'contour-cut' camera design and cinematic 8K video.",
+    fullDescription: "Designed to be a revolution in video and photography. With its high-resolution 108MP sensor (Ultra) and 120Hz adaptive display, the S21 series provides a flagship Android experience with blazing-fast 5G connectivity and a bold, modern aesthetic.",
   },
   {
     id: "19",
@@ -206,8 +206,8 @@ const products = [
     price: 949.99,
     src: DellLaptopPro,
     rating: 3.8,
-    miniDesciption: "The gold standard of Windows laptops. Bezel-less beauty and raw power.",
-    fullDesciption: "The XPS line features the iconic InfinityEdge display for an immersive viewing experience. Built with premium materials like machined aluminum and carbon fiber, these machines house high-performance Intel processors to handle everything from heavy multitasking to creative professional suites.",
+    miniDescription: "The gold standard of Windows laptops. Bezel-less beauty and raw power.",
+    fullDescription: "The XPS line features the iconic InfinityEdge display for an immersive viewing experience. Built with premium materials like machined aluminum and carbon fiber, these machines house high-performance Intel processors to handle everything from heavy multitasking to creative professional suites.",
   },
   
 ];
