@@ -16,10 +16,10 @@ export default function BagPanel() {
 
   return (
     <aside
-      aria-label="Bag panel"
-      className="hidden sm:flex fixed right-0 top-0 h-screen sm:w-72 md:w-[320px] flex-col z-50 p-4"
-      style={{ backgroundColor: "#EDEDED" }} // light gray panel
-    >
+  aria-label="Bag panel"
+  className="hidden sm:flex fixed right-0 top-0 h-screen sm:w-72 md:w-[320px] flex-col z-50 p-4 bg-gray-100"
+>
+
       <p className="text-center text-black font-bold text-lg mt-4">
       Bag
       </p>
