@@ -7,8 +7,8 @@
 
 ## 🖼️ Screenshots
 
-![Homepage Screenshot](./assets/screenshots/homepage.png)
-![Checkout Screenshot](./assets/screenshots/checkout.png)
+![Homepage Screenshot](./public/homepage.png)
+![Checkout Screenshot](./public/checkoutpage.png)
 
 
 
