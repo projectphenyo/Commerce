@@ -37,7 +37,7 @@
     npm run dev
 
 ### 📁 Project Structure
-src/
+src/ my-group
 
     components/   # Reusable UI components
   
