@@ -22,11 +22,10 @@ export default function BagPanel() {
   if (isBagPage || isCheckoutPage) return null;
 
   return (
-   <aside
-  className="fixed top-0 right-0 h-screen w-72 md:w-80 flex-col p-4 bg-gray-100 transform transition-transform duration-300"
-  style={{ backgroundColor: "#EDEDED" }}
->
-
+    <aside
+      className="fixed top-0 right-0 h-screen w-72 md:w-80 flex-col p-4 bg-gray-100 transform transition-transform duration-300"
+    >
+      {/* Bag header */}
       <div className="p-4 bg-white rounded-xl mb-3">
         <h2 className="text-xl font-bold text-center">Bag</h2>
         <p className="text-sm text-center text-gray-500">
@@ -34,6 +33,7 @@ export default function BagPanel() {
         </p>
       </div>
 
+      {/* Bag items */}
       <div className="flex flex-col gap-3 flex-1 overflow-auto bg-white rounded-xl p-3">
         {items.length === 0 && (
           <p className="text-center text-gray-400 mt-10">Your bag is empty</p>
@@ -53,16 +53,30 @@ export default function BagPanel() {
         })}
       </div>
 
-      <button
-        className="mt-4 h-12 bg-black text-white rounded-xl font-medium flex items-center justify-center gap-2 hover:opacity-90"
-        onClick={() => navigate("/bag")}
-      >
-        <img src={bagIcon} alt="Bag" className="w-4 h-4" />
-        View Bag
-      </button>
+      {/* Buttons */}
+      <div className="mt-4 flex flex-col gap-2">
+        <button
+          className="h-12 bg-black text-white rounded-xl font-medium flex items-center justify-center gap-2 hover:opacity-90"
+          onClick={() => navigate("/bag")}
+        >
+          <img src={bagIcon} alt="Bag" className="w-4 h-4" />
+          View Bag
+        </button>
+
+        {bagCount() > 0 && (
+          <button
+            className="h-12 bg-pink-500 text-white rounded-xl font-medium flex items-center justify-center gap-2 hover:opacity-90"
+            onClick={() => navigate("/checkout")}
+          >
+            Checkout
+          </button>
+        )}
+      </div>
+      
     </aside>
   );
 }
+
 
 
   {/* Bag total
