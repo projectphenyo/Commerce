@@ -88,16 +88,18 @@ export default function ProductDetail() {
           <p className="text-xl font-bold">${money(product.price)}</p>
           <p className="text-gray-600">{product.miniDescription}</p>
 
-          {/* Smaller Add to Bag button */}
-          <button
-            onClick={() => addToBag(product.id)}
-            className="mt-2 bg-black text-white py-2 px-3 text-sm rounded-md font-medium flex items-center justify-center gap-2 hover:opacity-90 transition"
-          >
-            <img src={bagAdd} alt="Add to bag" className="w-3 h-3" />
-            Add to Bag
-          </button>
+           <button
+  onClick={() => addToBag(product.id)}
+  className="mt-2 bg-black text-white py-1.5 px-2 text-xs rounded-md font-medium inline-flex items-center gap-1 hover:opacity-90 transition w-fit"
+>
+  <img src={bagAdd} alt="Add to bag" className="w-3 h-3" />
+  Add to Bag
+</button>
+
+
         </div>
       </div>
+
 
       {/* Divider with "Description" */}
       <div className="border-t border-gray-400 relative my-6">
