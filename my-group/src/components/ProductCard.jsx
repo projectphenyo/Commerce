@@ -3,6 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { money } from "../utils/format";
 import bagAdd from "../assets/icons/bag-add.svg";
+import shoppingCart from "../assets/icons/shoppingiconToday.png";
 
 export default function ProductCard({ product, onAdd }) {
   const navigate = useNavigate();
@@ -53,10 +54,10 @@ export default function ProductCard({ product, onAdd }) {
               e.stopPropagation();
               onAdd(product.id);
             }}
-            className="w-10 h-10 rounded-2xl bg-white text-white flex items-center justify-center 
+            className="w-10 h-10 rounded-2xl bg-gray-100 text-white flex items-center justify-center 
                        hover:bg-gray-200 transition-colors duration-300"
           >
-            <img src={bagAdd} alt="Add to bag" className="w-4 h-4" />
+            <img src={shoppingCart} alt="Add to bag" className="w-4 h-4" />
           </button>
         </div>
       </div>
