@@ -161,7 +161,7 @@ const products = [
   },
   {
     id: "15",
-    name: "Sumsung Galaxy Note 20 Ultra",
+    name: "Samsung Galaxy Note 20 Ultra",
     variant: "Rose Gold",
     price: 399.99,
     src: SumsungNote21,
@@ -181,7 +181,7 @@ const products = [
   },
   {
     id: "17",
-    name: "Sumsung Galaxy S21",
+    name: "Samsung Galaxy S21",
     variant: "Milky Way",
     price: 449.99,
     src: SumsungS21,
@@ -191,7 +191,7 @@ const products = [
   },
   {
     id: "18",
-    name: "Sumsung Galaxy S21 Ultra",
+    name: "Samsung Galaxy S21 Ultra",
     variant: "Charcoal black",
     price: 529.99,
     src: SumsungS21Pro,
@@ -209,16 +209,7 @@ const products = [
     miniDesciption: "The gold standard of Windows laptops. Bezel-less beauty and raw power.",
     fullDesciption: "The XPS line features the iconic InfinityEdge display for an immersive viewing experience. Built with premium materials like machined aluminum and carbon fiber, these machines house high-performance Intel processors to handle everything from heavy multitasking to creative professional suites.",
   },
-  {
-    id: "20",
-    name: "Apple Watch",
-    variant: "Series 6 SE",
-    price: 524.99,
-    src: Watch,
-    rating: 3.9,
-    miniDesciption: "Faster performance and advanced tracking to help you reach your goals.",
-    fullDesciption: "Featuring the S5 SiP for snappier performance than previous generations, this SE model brings the best of Series 6 styling to a budget-friendly price point. Includes sleep tracking, heart rate notifications, and a water-resistant design up to 50 meters",
-  },
+  
 ];
 
 export default products;
