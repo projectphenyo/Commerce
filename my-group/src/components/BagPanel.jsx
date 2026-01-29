@@ -25,7 +25,7 @@ export default function BagPanel() {
 
   return (
     <aside
-      className="fixed top-0 right-0 h-screen w-72 md:w-80 flex-col p-4 bg-gray-100 transform transition-transform duration-300">
+      className="fixed top-0 right-0 h-screen w-72 md:w-80 flex-col p-4 bg-gray-50 transform transition-transform duration-300">
         {/* w-64 bg-white rounded-2xl p-5 shadow-sm h-fit sticky top-6 */}
       {/* Bag header */}
       <div className="p-4 bg-white rounded-xl mb-3">
