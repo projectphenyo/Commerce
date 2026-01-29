@@ -4,7 +4,7 @@ import Headphones from "../assets/images/Headphones.png";
 import Iphone12Black from "../assets/images/Iphone-12-01.png";
 import Iphone12Blue from "../assets/images/Iphone-12-02.png";
 import Iphone12Red from "../assets/images/Iphone-12-03.png";
-import MacBook from "../assets/images/MacBook.png";
+import MacBook from "../assets/images/Macbook.png";
 import Iphone12White from "../assets/images/Iphone-12-04.png";
 import DellLaptop from "../assets/images/Dell-XPS-15-Black.png";
 import Iphone13Navy from "../assets/images/Iphone-12-Pro-02.png";

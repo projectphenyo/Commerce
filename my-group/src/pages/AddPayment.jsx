@@ -1,6 +1,6 @@
 import { useState } from "react";
 import card from "../assets/icons/card.svg";
-import icon from "../assets/images/icon.png";
+import icon from "../assets/images/Icon.png";
 import calendar from "../assets/icons/calendar.svg";
 import lock from "../assets/icons/lock-closed.svg";
 import { useNavigate } from "react-router-dom";
