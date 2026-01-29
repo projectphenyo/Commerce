@@ -4,7 +4,8 @@ import PRODUCTS from "../data/products";
 import RatingStars from "../components/RatingStars";
 import { money } from "../utils/format";
 import { useBag } from "../context/BagContext";
-import bagAdd from "../assets/icons/bag-add.svg";
+import buttonAdd from "../assets/icons/addIcon.svg";
+
 
 function productSVG(p) {
   return (
@@ -119,7 +120,7 @@ export default function ProductDetail() {
               onClick={() => addToBag(product.id)}
               className="mt-2 bg-black text-white py-1.5 px-2 text-xs rounded-md font-medium inline-flex items-center gap-1 hover:opacity-90 transition w-fit"
             >
-              <img src={bagAdd} alt="Add to bag" className="w-3 h-3" />
+              <img src={buttonAdd} alt="Add to bag" className="w-3 h-3" />
               Add to Bag
             </button>
           </div>

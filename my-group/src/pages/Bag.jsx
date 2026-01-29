@@ -40,19 +40,26 @@ export default function Bag() {
                   <RatingStars rating={item.rating} />
                   <span className="text-sm">{item.rating}/5</span>
                 </div>
-
+<div className="flex items-center justify-between gap-2">
                 <div className="mt-2 font-semibold">
                   ${money(item.price)} × {item.quantity}
                 </div>
-              </div>
 
-              {/* Quantity controls */}
-              <div className="flex flex-row md:flex-col items-center justify-center gap-2 mt-2 md:mt-0">
+                {/* Quantity controls */}
+              <div className="flex flex-row items-center justify-center gap-2 mt-2">
                 <button onClick={() => addToBag(item.id)} className="text-green-600 text-xl">+</button>
                 <span>{item.quantity}</span>
                 <button onClick={() => removeFromBag(item.id)} className="text-red-500 text-xl">−</button>
               </div>
+              </div>
+
             </div>
+              </div>
+
+              
+            
+ 
+           
           ))}
         </div>
       </div>
@@ -92,42 +99,4 @@ export default function Bag() {
     </div>
   );
 }
-
-
-
-      {/* Right: Bag Preview
-      <aside className="w-72 bg-white rounded-2xl shadow-lg p-5 sticky top-5 flex flex-col gap-4">
-
-        {/* Images only
-        <div className="grid grid-cols-3 gap-3">
-          {entries.map(([id]) => {
-            const p = PRODUCTS.find((x) => x.id === id);
-            if (!p) return null;
-
-            return (
-              <div
-                key={id}
-                className="w-20 h-20 rounded-xl bg-gray-100 flex items-center justify-center overflow-hidden"
-              >
-                <img
-                  src={p.src}
-                  alt={p.name}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            );
-          })}
-        </div>
-
-        {/* View Bag Button 
-        <button
-          onClick={() => navigate("/Checkout")}
-          className="flex items-center justify-center gap-2 w-full py-3 rounded-full bg-black text-white font-semibold hover:opacity-90 transition"
-        >
-          <span className="material-icons text-base">shopping_bag</span>
-          View Bag
-        </button>
-
-      </aside>*/}
-  
 

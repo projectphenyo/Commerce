@@ -80,38 +80,3 @@ export default function BagPanel() {
 }
 
 
-
-  {/* Bag total
-  <div aria-label="Bag total" className="flex justify-between font-bold px-4 py-3 bg-white border-t border-border">
-    <span>Bag Total:</span>
-    <div>${money(total)}</div>
-  </div> */}
-
-  {/* Checkout button */}
-  {/* <div className="p-4 bg-white border-t border-border">
-    <button
-      type="button"
-      title="Checkout"
-      onClick={() => alert(`Checkout - Total: $${money(total)}`)}
-      disabled={items.length === 0}
-      className="flex items-center gap-2 w-full justify-center px-4 py-3 bg-emerald-600 text-white rounded-lg disabled:opacity-50 hover:bg-black transition-colors"
-    >
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-        className="w-5 h-5"
-      >
-        <path d="M6 7h15l-1.5 9h-13z" />
-        <path d="M6 7l-2-3H2" />
-        <circle cx="9" cy="20" r="1" />
-        <circle cx="18" cy="20" r="1" />
-      </svg>
-      <span>Checkout</span>
-    </button>
-  </div> */}
-
