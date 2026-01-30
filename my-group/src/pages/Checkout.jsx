@@ -34,7 +34,7 @@ export default function Checkout() {
   const orderTotal = itemsTotal + shipping + gst - giftCard;
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8">
 
         {/* LEFT COLUMN */}
@@ -49,13 +49,15 @@ export default function Checkout() {
               <p>{city}, {state}</p>
               <p>{country}</p>
             </div>
-            <button
-              onClick={() => navigate("/AddAddress")}
+           <button
+            type="button"
+              onClick={() => navigate("/add-address")}
               className="mt-3 border border-black rounded-lg px-4 py-2 hover:bg-gray-100 transition"
             >
               Change
             </button>
           </div>
+           
 
           {/* Payment */}
           <div className="bg-white rounded-2xl shadow-md p-4 sm:p-6">
@@ -72,7 +74,8 @@ export default function Checkout() {
               </p>
             </div>
             <button
-              onClick={() => navigate("/AddPayment")}
+            type="button"
+              onClick={() => navigate("/add-payment")}
               className="mt-3 border border-black rounded-lg px-4 py-2 hover:bg-gray-100 transition"
             >
               Change

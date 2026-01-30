@@ -26,11 +26,12 @@ export default function App() {
               <Route path="/menu" element={<Menu searchQuery={searchQuery} />} />
               <Route path="/store" element={<Store searchQuery={searchQuery} />} />
               <Route path="/detail/:id" element={<ProductDetail />} />
-              <Route path="/bag" element={<Bag />} />
-              <Route path="/addPayment" element={<AddPayment />} />
-              <Route path="/addAddress" element={<AddAddress />} />
-              <Route path="/confirmation" element={<Confirmation />} />
+               <Route path="/confirmation" element={<Confirmation />} />
               <Route path="/checkout" element={<Checkout />} />
+              <Route path="/bag" element={<Bag />} />
+              <Route path="/add-payment" element={<AddPayment />} />
+              <Route path="/add-address" element={<AddAddress />} />
+            
             </Routes>
           </main>
           <BagPanel />
